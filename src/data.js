@@ -1,0 +1,32 @@
+export const initialState = [{
+        taste: 'фуа-гра',
+        weight: '0,5',
+        col: 10,
+        prize: 'мышь',
+        description: 'Печень утки разварная с артишоками.',
+        have: true,
+        hover: false,
+        selected: false,
+    },
+    {
+        taste: 'рыбой',
+        weight: '2',
+        col: 40,
+        prize: '2 мыши',
+        description: 'Головы щучьи с чесноком да свежайшая сёмгушка.',
+        have: true,
+        hover: false,
+        selected: false,
+    },
+    {
+        taste: 'курой',
+        weight: '5',
+        col: 100,
+        prize: '5 мышей',
+        description: 'Филе из цыплят с трюфелями в бульоне.',
+        have: false,
+        hover: false,
+        selected: false,
+    },
+
+]

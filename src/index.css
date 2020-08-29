@@ -1,0 +1,16 @@
+@import './fonts/stylesheet.css';
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(./bg.png);
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
