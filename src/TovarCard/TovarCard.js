@@ -45,27 +45,32 @@ const Nyam = s.h2`
     font-size: 35pt;
     margin: 0;
     font-weight: 600;
+    opacity: ${props => props.have? '' : '0.4'};
 `
 const Title = s.p`
     font-size: 12pt;
     margin: 13px 0 0 0;
     color: gray;
+    opacity: ${props => props.have? '' : '0.4'};
 `
 const Taste = s.p`
     font-size: 19pt;
     margin: 0;
     font-weight: 600;
+    opacity: ${props => props.have? '' : '0.4'};
 `
 
 const Col = s.p`
     font-size: 10.4pt;
     margin: 10px 0 0 0;
     color: gray;
+    opacity: ${props => props.have? '' : '0.4'};
 `
 const Prize = s.p`
     font-size: 10.4pt;
     margin: 0px;
     color: gray;
+    opacity: ${props => props.have? '' : '0.4'};
 `
 
 const Weight = s.div`
@@ -84,12 +89,14 @@ const Weight = s.div`
     right: 15px;
     bottom: 20px;
     background-color: ${props => props.color};
+    opacity: ${props => props.have? '' : '0.4'};
 `
 
 const CatImage = s.img`
     position: absolute;
     left: 4px;
     bottom: 4px;
+    opacity: ${props => props.have? '' : '0.4'};
 `
 
 const KG = s.span`
@@ -142,6 +149,7 @@ export default class TovarCard extends React.Component {
     }
 
     render() {
+        const have = this.state.have;
         return (
             <Wrapper>
             <Card   color = { this.HSH() } 
@@ -150,22 +158,24 @@ export default class TovarCard extends React.Component {
                     onMouseLeave = {() => this.setState({hover: false})}
                     >
                 {
-                    this.state.have
+                    have
                     ? 
                         this.state.hover && this.state.selected
                         ?
                         <Title style={{color: '#e62e7a' }}>Котэ не одобряет?</Title>
                         :
-                        <Title>Сказочное заморское яство</Title>
+                        <Title have = {have}>Сказочное заморское яство</Title>
                     :
-                    <Title style={!this.state.have ? {opacity: 0.4} : {} }>Сказочное заморское яство</Title>
+                    <Title have = {have}>Сказочное заморское яство</Title>
                 }
-                <Nyam  style={!this.state.have ? {opacity: 0.4} : {} }>Нямушка</Nyam>
-                <Taste style={!this.state.have ? {opacity: 0.4} : {} }>c { this.state.taste }</Taste>
-                <Col style={!this.state.have ? {opacity: 0.4} : {} }>{ this.state.col } порций</Col>
-                <Prize style={!this.state.have ? {opacity: 0.4} : {} }>{ this.state.prize } в подарок</Prize>
-                <CatImage style={!this.state.have ? {opacity: 0.4} : {} } alt='' src={ cat }></CatImage>
-                <Weight style={!this.state.have ? {opacity: 0.4} : {} } color={ this.HSH() }>
+                    
+
+                <Nyam have = {have}>Нямушка</Nyam>
+                <Taste have = {have}>c { this.state.taste }</Taste>
+                <Col have = {have}>{ this.state.col } порций</Col>
+                <Prize have = {have}>{ this.state.prize } в подарок</Prize>
+                <CatImage have = {have} alt='' src={ cat }></CatImage>
+                <Weight have = {have} color={ this.HSH() }>
                     { this.state.weight }
                     <KG>кг</KG>
                 </Weight>
